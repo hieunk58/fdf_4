@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :products
     resources :users, except: [:creat, :new, :destroy]
     resources :orders, only: [:index, :show]
-    resources :categories , only: [:index, :new, :create, :destroy]
+    resources :categories
     resources :suggests, only: [:index, :destroy]
   end
 end

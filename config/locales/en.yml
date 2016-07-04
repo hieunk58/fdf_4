@@ -91,6 +91,8 @@ en:
       delete_success: "Deleted!"
       delete_error: "Can't delete!"
       delete_button: "Delete"
+      edit_title: "Edit Category"
+      update_success: "Category was updated!"
       table:
         no_categories: "Category is empty. Create new category now!"
         th:

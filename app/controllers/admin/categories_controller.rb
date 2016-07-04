@@ -10,7 +10,7 @@ class Admin::CategoriesController < ApplicationController
   def new
     @category = Category.new
   end
-
+asdfasdfasdfsadf
   def create
     @category = Category.new category_params
     if @category.save
@@ -19,6 +19,15 @@ class Admin::CategoriesController < ApplicationController
     else
       flash[:danger] = t "admin.categories.create_error"
       render :new
+    end
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "admin.categories.update_success"
+      redirect_to admin_categories_path
+    else
+      render :edit
     end
   end
 
