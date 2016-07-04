@@ -14,23 +14,27 @@
             <li><%= link_to t("admin.users.title"), "#" %></li>
             <li><%= link_to t("admin.orders.title"), "#" %></li>
             <li><%= link_to t("admin.suggestion.title"), "#" %></li>
+            <li><%= link_to t("signout.signout_button"), signout_path,
+              method: "delete" %>
+            </li>
+          <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= t "signin.signed_in_header" %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to t("signin.orders"), "#" %></li>
+                <li><%= link_to t("signin.profile"), current_user %></li>
+                <li><%= link_to t("signin.setting"),
+                  edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to t("signout.signout_button"), signout_path,
+                    method: "delete" %>
+                </li>
+              </ul>
+            </li>
           <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t "signin.signed_in_header" %> <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t("signin.orders"), "#" %></li>
-              <li><%= link_to t("signin.profile"), current_user %></li>
-              <li><%= link_to t("signin.setting"),
-                edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to t("signout.signout_button"), signout_path,
-                  method: "delete" %>
-              </li>
-            </ul>
-          </li>
         <% else %>
           <li><%= link_to t("views.signup_link"), signup_path %></li>
           <li><%= link_to t("views.signin_link"), signin_path %></li>

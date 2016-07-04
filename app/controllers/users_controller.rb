@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update]
   before_action :load_user, :correct_user, only: [:show, :edit, :update]
-  before_action :admin_user
 
   def show
 
@@ -42,14 +41,6 @@ class UsersController < ApplicationController
 
   def load_user
     @user = User.find_by id: params[:id]
-  end
-
-  def signed_in_user
-    unless signed_in?
-      store_location
-      flash[:danger] = t "user.authorization.message"
-      redirect_to signin_url
-    end
   end
 
   def correct_user

@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :admin_user
+  before_action :signed_in_user, :check_admin
   before_action :load_category, except: [:index, :create]
 
   def index
@@ -20,6 +20,15 @@ class Admin::CategoriesController < ApplicationController
       flash[:danger] = t "admin.categories.create_error"
       render :new
     end
+  end
+
+  def destroy
+    if @category.destroy
+      flash[:success] = t "admin.categories.delete_success"
+    else
+      flash[:danger] = t "admin.categories.delete_error"
+    end
+    redirect_to admin_categories_path
   end
 
   private

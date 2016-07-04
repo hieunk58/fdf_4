@@ -66,14 +66,18 @@ en:
     error_message: "You are not authorized to view that page."
     edit: "Edit"
     delete: "Delete"
-    confirm: "Confirm"
+    confirm: "Are you sure?"
     cancel: "Cancel"
     categories:
       title: "Manage Categories"
-      page_title: "Mange Categories"
+      page_title: "Manage Categories"
       create_success: "New Category was successfully created!"
       create_error: "Unsuccessful created!"
-      add_new: "Add new Category"
+      add_new_title: "New Category"
+      add_new_button: "Create Category"
+      delete_success: "Deleted!"
+      delete_error: "Can't delete!"
+      delete_button: "Delete"
       table:
         no_categories: "Category is empty. Create new category now!"
         th:
@@ -82,6 +86,7 @@ en:
           quantity: "Number of Products"
           action: "Action"
     products:
+      title: "Products"
       table:
         id: "ID"
         images: "Images"
@@ -119,8 +124,13 @@ en:
       confirm: "Are you sure?"
     submit: "Submit"
     back: "Back"
+    suggestion:
+      title: "Suggestions"
+    orders:
+      title: "Orders"
 
     users:
+      title: "All Users"
       table:
         id: "ID"
         name: "Name"
