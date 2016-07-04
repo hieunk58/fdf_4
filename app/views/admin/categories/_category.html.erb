@@ -1,0 +1,10 @@
+<%= content_tag_for(:tr, category) do %>
+  <td><%= category.id %></td>
+  <td><%= category.category_name %></td>
+  <td><%= category.products.count %></td>
+  <td>
+    <%= link_to t("admin.edit"), "#" %> |
+    <%= link_to t("admin.delete"), "#", method: :delete,
+      confirm: t("admin.confirm"), remote: true %>
+  </td>
+<% end %>

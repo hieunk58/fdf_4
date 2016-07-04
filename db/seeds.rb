@@ -1,5 +1,5 @@
-Categories.create category_name: "Food"
-Categories.create category_name: "Drink"
+Category.create category_name: "Food"
+Category.create category_name: "Drink"
 20.times do |n|
   Product.create! price:  (n+1),
     product_name: "Che Tuyet#{n+1}",
@@ -7,7 +7,7 @@ Categories.create category_name: "Drink"
     quantity: 20,
     images: "/assets/dr9.jpeg",
     rating: "5",
-    categories_id: 1
+    category_id: 1
 end
 
 10.times do |n|
@@ -15,6 +15,7 @@ end
     user_id: 1,
     comment: "hap dan qua#{n+1}"
 end
+
 5.times do |u|
   User.create! name: "User" + (u+1).to_s,
   address: "nghe an",

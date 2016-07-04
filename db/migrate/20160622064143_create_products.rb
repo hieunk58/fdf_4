@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :quantity
       t.string :images
       t.string :rating
-      t.references :categories, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
     end

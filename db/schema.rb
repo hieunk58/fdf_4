@@ -59,12 +59,12 @@ ActiveRecord::Schema.define(version: 20160701023147) do
     t.integer  "quantity"
     t.string   "images"
     t.string   "rating"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "category_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "products", ["categories_id"], name: "index_products_on_categories_id"
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "suggests", force: :cascade do |t|
     t.text     "suggest"
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20160701023147) do
     t.string   "address"
     t.string   "phone"
     t.string   "email"
-    t.string   "password"
     t.string   "remember_digest"
     t.boolean  "is_admin"
     t.datetime "created_at",      null: false

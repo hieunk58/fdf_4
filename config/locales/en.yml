@@ -63,6 +63,24 @@ en:
     not_created: "Suggestion not created!"
 
   admin:
+    error_message: "You are not authorized to view that page."
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Confirm"
+    cancel: "Cancel"
+    categories:
+      title: "Manage Categories"
+      page_title: "Mange Categories"
+      create_success: "New Category was successfully created!"
+      create_error: "Unsuccessful created!"
+      add_new: "Add new Category"
+      table:
+        no_categories: "Category is empty. Create new category now!"
+        th:
+          index: "No."
+          name: "Name"
+          quantity: "Number of Products"
+          action: "Action"
     products:
       table:
         id: "ID"
@@ -122,3 +140,53 @@ en:
     submit: "Comment"
 
 
+  admin:
+    error_message: "You are not authorized to view that page."
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Confirm"
+    cancel: "Cancel"
+    categories:
+      new_title: "Creat New Category"
+      new_button: "Creat"
+      title: "Categories"
+      page_title: "Manage Categories"
+      create_success: "New Category was successfully created!"
+      create_error: "Unsuccessful created!"
+      add_new: "Add New Category"
+      delete_success: "A Category was deleted!"
+      table:
+        no_categories: "Category is empty. Create new category now!"
+        th:
+          id: "ID"
+          name: "Name"
+          quantity: "Number of Products"
+          action: "Action"
+    products:
+      title: "Products"
+      table:
+        id: "ID"
+        images: "Images"
+        productName: "Name"
+        description: "Description"
+        price: "Price"
+        quantity: "Quantily"
+        rating: "Rating"
+        edit: "Edit"
+        delete: "Delete"
+        add: "Add"
+
+      new:
+        product: "Create a new product."
+      index:
+      add: "Add a new product"
+    messages:
+      confirm: "Are you sure?"
+    submit: "Submit"
+    back: "Back"
+    users:
+      title: "All Users"
+    suggestion:
+      title: "Suggestions"
+    orders:
+      title: "Orders"

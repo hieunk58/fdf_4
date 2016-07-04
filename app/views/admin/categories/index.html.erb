@@ -1,0 +1,28 @@
+<div class="admin_categories">
+  <div class="row">
+    <h1 style="color: blue; text-align: center">
+      <%= t "admin.categories.page_title" %>
+    </h1>
+    <%= link_to t("admin.categories.add_new"), new_admin_category_path,
+      class: "btn btn-md btn-primary" %>
+    </br>
+  </div>
+  <table class="categories table table-hover table-bordered">
+    <thead>
+      <tr class="info">
+        <th><%= t "admin.categories.table.th.id" %></th>
+        <th><%= t "admin.categories.table.th.name" %></th>
+        <th><%= t "admin.categories.table.th.quantity" %></th>
+        <th><%= t "admin.categories.table.th.action" %></th>
+      </tr>
+    </thead>
+    <tbody id="categories">
+      <% if @categories.any? %>
+        <%= render @categories %>
+      <% else %>
+        <tr><td><%= t "admin.categories.talbe.no_categories" %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate %>

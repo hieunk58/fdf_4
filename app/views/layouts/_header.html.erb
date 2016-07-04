@@ -6,9 +6,15 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("views.home_link"), products_path %></li>
-        <li><%= link_to t("views.category_link"), "#" %></li>
-        <li><%= link_to t("views.signup_link"), signup_path %></li>
         <% if signed_in? %>
+          <% if current_user.is_admin? %>
+            <li><%= link_to t("admin.categories.title"),
+              admin_categories_path %></li>
+            <li><%= link_to t("admin.products.title"), "#" %></li>
+            <li><%= link_to t("admin.users.title"), "#" %></li>
+            <li><%= link_to t("admin.orders.title"), "#" %></li>
+            <li><%= link_to t("admin.suggestion.title"), "#" %></li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t "signin.signed_in_header" %> <b class="caret"></b>
@@ -26,6 +32,7 @@
             </ul>
           </li>
         <% else %>
+          <li><%= link_to t("views.signup_link"), signup_path %></li>
           <li><%= link_to t("views.signin_link"), signin_path %></li>
         <% end %>
       </ul>
