@@ -40,3 +40,7 @@ end
   product_id: (n+1),
   order_id: 1
 end
+10.times do |n|
+  Suggest.create! suggest: "admin cho them mon che buoi vao di#{n+1}",
+  user_id: (n+1)
+end

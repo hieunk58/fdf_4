@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy"
   resources :comments, only: [:create, :new, :show]
-
   resources :suggests, only: [:index, :create]
 
   namespace :admin do
@@ -20,5 +19,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :new]
     resources :orders, only: [:index, :show]
     resources :categories , only: [:index, :new, :create]
+    resources :suggests, only: [:index, :destroy]
   end
 end

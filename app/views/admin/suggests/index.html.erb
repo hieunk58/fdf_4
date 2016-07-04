@@ -1,0 +1,28 @@
+<div id="btntop" style="display: hidden;">
+
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.suggests.table.id" %></th>
+      <th><%= t "admin.suggests.table.suggest" %></th>
+      <th><%= t "admin.suggests.table.user_id" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @suggests.each do |suggest| %>
+      <tr>
+        <td><%= suggest.id %></td>
+        <td><%= suggest.suggest %></td>
+        <td><%= suggest.user.name %></td>
+        <td>
+          <%= link_to t("admin.suggests.table.delete"),
+            admin_suggest_path(suggest), method: :delete,
+            data: {confirm: t("admin.messages.confirm")},
+            class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @suggests %>

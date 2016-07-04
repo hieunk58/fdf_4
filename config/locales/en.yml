@@ -105,6 +105,12 @@ en:
         priceEach: "Price Each"
         name: "Product name"
 
+    suggests:
+      table:
+        id: "ID"
+        suggests: "Suggestion"
+        user_id: "Name Customer"
+
       new:
         product: "Create a new product."
       index:
@@ -129,6 +135,9 @@ en:
         create_success: "New product has been created."
         destroy_success: "Product has been destroy."
         no_destroy: "error"
+      comments:
+        destroy_success: "Suggestion has been destroy."
+        no_destroy: "error"
 
   models:
     products:
@@ -138,55 +147,3 @@ en:
     comment: "you commented successful"
     error: "error"
     submit: "Comment"
-
-
-  admin:
-    error_message: "You are not authorized to view that page."
-    edit: "Edit"
-    delete: "Delete"
-    confirm: "Confirm"
-    cancel: "Cancel"
-    categories:
-      new_title: "Creat New Category"
-      new_button: "Creat"
-      title: "Categories"
-      page_title: "Manage Categories"
-      create_success: "New Category was successfully created!"
-      create_error: "Unsuccessful created!"
-      add_new: "Add New Category"
-      delete_success: "A Category was deleted!"
-      table:
-        no_categories: "Category is empty. Create new category now!"
-        th:
-          id: "ID"
-          name: "Name"
-          quantity: "Number of Products"
-          action: "Action"
-    products:
-      title: "Products"
-      table:
-        id: "ID"
-        images: "Images"
-        productName: "Name"
-        description: "Description"
-        price: "Price"
-        quantity: "Quantily"
-        rating: "Rating"
-        edit: "Edit"
-        delete: "Delete"
-        add: "Add"
-
-      new:
-        product: "Create a new product."
-      index:
-      add: "Add a new product"
-    messages:
-      confirm: "Are you sure?"
-    submit: "Submit"
-    back: "Back"
-    users:
-      title: "All Users"
-    suggestion:
-      title: "Suggestions"
-    orders:
-      title: "Orders"
