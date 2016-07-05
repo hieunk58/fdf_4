@@ -10,6 +10,11 @@ class Product < ActiveRecord::Base
   validates :rating, presence: true
   validate :images_size
 
+  scope :product_name,
+    ->(product_name){where("product_name LIKE ?", "%#{product_name}%")}
+  scope :price,
+    ->(price){where("price = ?", "#{price}")}
+
   private
   def images_size
     if self.images.size > Settings.admin.products.images_size.megabytes

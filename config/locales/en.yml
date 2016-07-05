@@ -25,6 +25,7 @@ en:
     orders: "My Orders"
     profile: "Profile"
     setting: "Setting"
+    suggest: "Suggestion"
   signout:
     signout_button: "Sign out"
 
@@ -90,6 +91,9 @@ en:
     accept: "Items in Cart"
     showdetailorder: "%{size} Items in Cart %{total_pay}"
     customer_cart: "Your Cart"
+  products:
+    no_content: "No Product to show"
+
   admin:
     error_message: "You are not authorized to view that page."
     edit: "Edit"
@@ -97,7 +101,7 @@ en:
     confirm: "Are you sure?"
     cancel: "Cancel"
     categories:
-      title: "Manage Categories"
+      title: "Categories"
       page_title: "Manage Categories"
       create_success: "New Category was successfully created!"
       create_error: "Unsuccessful created!"
@@ -188,3 +192,8 @@ en:
     comment: "you commented successful"
     error: "error"
     submit: "Comment"
+  search_products:
+    price: "Price"
+    search_placeholder: "Search Products"
+    search_button: "Search"
+    no_result: "There are no products with your search! Please try again"

@@ -1,8 +1,21 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order(created_at: :desc).paginate page: params[:page],
-      per_page: Settings.per_page
-    @order_detail = current_order.order_details.new
+    @products = Product.all
+    if params[:product_name].present?
+      @products = @products.product_name params[:product_name]
+    end
+    @products = @products.price params[:price] if params[:price].present?
+    if @products.present?
+      @products.order(created_at: :desc).paginate page: params[:page],
+        per_page: Settings.per_page
+    end
+    if params[:product_name].blank? && params[:price].blank?
+      @products = Product.all
+        .order(created_at: :desc).paginate page: params[:page],
+        per_page: Settings.per_page
+    end
+    @products = @products.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def show

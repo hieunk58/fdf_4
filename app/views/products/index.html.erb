@@ -1,41 +1,62 @@
-<div class="container">
-  <%= will_paginate @products %>
-  <br>
-  <div class ="row">
-    <% @products.each do |product| %>
-      <div class="row_food">
-        <% if product.images.present? %>
-        <%= link_to image_tag(product.images), products_path %>
-        <% else %>
-        <%= link_to image_tag(Settings.products.url), product %>
-        <% end %>
-        <h4><%= link_to product.product_name, product_path(product) %></h4>
-        <p><%= product.quantity %></p>
-        <p><%= product.description %></p>
-        <div class="col-xs-4">
-          <%= form_for @order_detail, remote: true do |f| %>
-          <h4><class="text-right"><%= t("order.unit_price")%>
-            <span style="color: green">
-              <%= number_to_currency product.price %>
-            </span>
-          </h4>
-          <div class="input-group">
-            <%= f.number_field :quantity_ordered, value: 1,
-             class: "form-control", min: 1 %>
-            <div class="input-group-btn">
-              <%= f.hidden_field :product_id, value: product.id %>
-              <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-            </div>
-          </div>
-          <% end %>
-        </div>
-      </div>
+<div class="search_form" >
+  <div class="col-sm-8 col-sm-offset-2"
+    style="margin-left: 10px; margin-bottom: 10px">
+    <%= form_tag products_path, method: :get, class: "input-group" do %>
+      <%= text_field_tag :product_name, params[:product_name],
+        placeholder: t("search_products.search_placeholder") %>
+      <%= number_field_tag :price, params[:price], step: Settings.price_step,
+        placeholder: t("search_products.price") %>
+      <%= submit_tag t("search_products.search_button"),
+        class: "btn btn-primary" %>
+      <% if @products.empty? %>
+        <p><%= t "search_products.no_result" %></p>
+      <% end %>
     <% end %>
   </div>
+</div>
+<div class="container">
+  <div class ="row">
+    <% if @products.present? %>
+      <% @products.each do |product| %>
+        <div class="row_food">
+          <% if product.images.present? %>
+            <%= link_to image_tag(product.images), products_path %>
+          <% else %>
+            <%= link_to image_tag(Settings.products.url), product %>
+          <% end %>
+          <h4><%= link_to product.product_name, product_path(product) %></h4>
+          <p><%= product.price %></p>
+          <p><%= product.quantity %></p>
+          <p><%= product.description %></p>
+          <div class="col-xs-4">
+            <%= form_for OrderDetail.new, remote: true do |f| %>
+              <h4> <class="text-right"><%= t "order.unit_price" %>
+                <span style="color: green">
+                  <%= number_to_currency product.price %>
+                </span>
+              </h4>
+              <div class="input-group">
+                <%= f.number_field :quantity_ordered, value: 1,
+                  class: "form-control", min: 1 %>
+                <div class="input-group-btn">
+                  <%= f.hidden_field :product_id, value: product.id %>
+                  <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  </div>
   <%= will_paginate @products %>
+    <% else %>
+      <% t "products.no_content" %>
+    <% end %>
 </div>
 <div>
-  <h2 class="text-center" style="color: green"><%= t "order.customer_cart" %></h2>
+  <h2 class="text-center" style="color: green">
+    <%= t "order.customer_cart" %>
+  </h2>
   <h3 class="order-text">
     <%= render "layouts/order_text" %>
   </h3>

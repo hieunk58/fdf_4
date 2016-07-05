@@ -8,16 +8,29 @@
         <li><%= link_to t("views.home_link"), products_path %></li>
         <% if signed_in? %>
           <% if current_user.is_admin? %>
-            <li><%= link_to t("admin.categories.title"),
-              admin_categories_path %></li>
-            <li><%= link_to t("admin.products.title"), "#" %></li>
-            <li><%= link_to t("admin.users.title"), "#" %></li>
-            <li><%= link_to t("admin.orders.title"), "#" %></li>
-            <li><%= link_to t("admin.suggestion.title"), "#" %></li>
-            <li><%= link_to t("signout.signout_button"), signout_path,
-              method: "delete" %>
+            <li>
+              <%= link_to t("admin.categories.title"), admin_categories_path %>
+            </li>
+            <li>
+              <%= link_to t("admin.products.title"), admin_products_path %>
+            </li>
+            <li>
+              <%= link_to t("admin.users.title"), admin_users_path %>
+            </li>
+            <li>
+              <%= link_to t("admin.orders.title"), admin_orders_path %>
+            </li>
+            <li>
+              <%= link_to t("admin.suggestion.title"), admin_suggests_path %>
+            </li>
+            <li>
+              <%= link_to t("signout.signout_button"), signout_path,
+                method: "delete" %>
             </li>
           <% else %>
+            <li>
+              <%= link_to t("signin.suggest"), suggests_path(current_user) %>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= t "signin.signed_in_header" %> <b class="caret"></b>

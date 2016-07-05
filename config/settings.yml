@@ -1,4 +1,5 @@
 per_page: 9
+price_step: 0.01
 products:
   page: 9
   size: "200x250"
